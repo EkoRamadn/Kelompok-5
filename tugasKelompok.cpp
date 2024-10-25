@@ -10,9 +10,9 @@ int main(){
     cin >> kata;
 
     // for
-    // for(int i = kata.length() - 1; i >= 0; i--){
-    //     kataBalik += kata[i];
-    // }
+    for(int i = kata.length() - 1; i >= 0; i--){
+        kataBalik += kata[i];
+    }
 
     // while
     // int i = kata.length() - 1;
@@ -23,12 +23,12 @@ int main(){
     // }
 
     // do while
-    int i = kata.length() - 1;
+    // int i = kata.length() - 1;
 
-    do{
-        kataBalik += kata[i];
-        i--;
-    }while( i >= 0);
+    // do{
+    //     kataBalik += kata[i];
+    //     i--;
+    // }while( i >= 0);
 
     string hasil = (kata == kataBalik) ? "True" : "false";
     cout << "hasil : " << hasil;
