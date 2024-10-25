@@ -5,7 +5,7 @@ using namespace std;
 int main(){
     string kata, kataBalik;
 
-    cout << "Chek Kata" << "\n";
+    cout << "Check Kata" << "\n";
     cout << "Input Kata : ";
     cin >> kata;
 
