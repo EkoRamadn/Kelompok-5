@@ -25,14 +25,11 @@ int main(){
     cout << "Input Kata : ";
     cin >> kata;
 
-    //copy string
     kataBalik = kata;
 
-    //mengunakan fungsi reverse()
     reverse(begin(kataBalik), end(kataBalik));
 
-    string hasil = (kata.compare(kataBalik) == 0) ? "True" : "false";
-    cout << "hasil : " << hasil;
+    cout << "hasil : " << ((kata.compare(kataBalik) == 0) ? "True" : "false");
 
     return 0;
 }
@@ -133,7 +130,7 @@ melakukan copy isi variabel `kata` ke variabel `kataBalik` mengunakan parameter 
  reverse(begin(kataBalik), end(kataBalik));
 ```
 
-`reverse()` adalah fungsi dari pustaka `<algorithm>` yang digunakan untuk membalik urutan elemen dari suatu rentang, mulai dari iterator awal hingga akhir.
+`reverse()` adalah fungsi dari pustaka `<algorithm>` yang digunakan untuk membalik urutan elemen dari suatu rentang, mulai dari perulangan awal hingga akhir.
 `begin()` dan `end()` adalah fungsi atau metode yang mengembalikan iterator ke elemen awal dan akhir dari kontainer atau array.
 
 ## Membandingkan String dengan Operator Ternary
@@ -147,7 +144,8 @@ cout << "hasil : " << hasil;
 return 0;
 ```
 
-mengunakan `fungsi compare()` dimuat dari library `<string>` untuk mengecek apakah 2 variabel `kata` dan `kataBalik` memiliki `string` yang sama.
+mengunakan fungsi `compare()` dimuat dari library `<string>` untuk mengecek apakah variabel `kata` dan `kataBalik` memiliki `string` yang sama.
+jika sama akan mengembalikan `0` jika tidak sama akan mengembalikan lainya(seperti `1` dan `-1`)
 
 ### Penjelasan:
 
