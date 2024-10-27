@@ -63,11 +63,11 @@ hasil : false
 
 1. Kompilasi program dengan perintah:
    ```
-   g++ -o palindrome_checker program.cpp
+   g++ -o tugasKelompok.cpp
    ```
 2. Jalankan program dengan perintah:
    ```
-   ./palindrome_checker
+   ./tugasKelompok
    ```
 
 ## Penjelasan Alur Program
