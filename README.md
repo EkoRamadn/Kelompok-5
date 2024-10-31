@@ -1,4 +1,4 @@
-# Tugas Kelompok UTS Seemeter 1
+# Tugas Kelompok UTS Semester1
 
 ## Program Hitung Gaji/minggu
 
