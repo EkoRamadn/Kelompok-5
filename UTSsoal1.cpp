@@ -2,13 +2,14 @@
 #include <string>
 using namespace std;
 
+
 int main() {
     string namaKaryawan;
     int golongan, jamKerja;
 
     // Input data karyawan
     cout << "Masukkan nama karyawan: ";
-    getline(cin, namaKaryawan);
+    cin >> namaKaryawan;
     cout << "Masukkan golongan (2 atau 3): ";
     cin >> golongan;
     cout << "Masukkan jumlah jam kerja dalam seminggu: ";
@@ -23,8 +24,7 @@ int main() {
         upahPokok = jamKerja * 50000;
     }
     else {
-        cout << "Golongan tidak valid. Harap masukkan 2 atau 3." << endl;
-        return 1; // Keluar program dengan kode kesalahan
+        upahPokok = jamKerja * 25000;
     }
 
     // Hitung uang lembur (jika ada)
@@ -37,8 +37,7 @@ int main() {
     int gajiTotal = upahPokok + uangLembur;
 
     // Tampilkan hasil
- 
-    cout << "Gaji Total: Rp " << gajiTotal << endl;
+    cout << "Total Gaji " << namaKaryawan << "per minggu : Rp " << gajiTotal << endl;
 
     return 0;
 }

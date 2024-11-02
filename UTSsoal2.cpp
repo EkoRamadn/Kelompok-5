@@ -30,7 +30,7 @@ int main() {
     totalPendapatan = (jumlahMotor * tarifMotor + jumlahMobil * tarifMobil) * durasiParkir;
 
     // Menampilkan total pendapatan
-    cout << "Total pendapatan penjaga portal parkir UNISBA: Rp " << totalPendapatan <<"(" <<durasiParkir<< " jam)" << endl;
+    cout << "Total pendapatan penjaga portal parkir UNISBA: Rp " << totalPendapatan <<" (" <<durasiParkir<< " Jam)" << endl;
 
     return 0;
 }
