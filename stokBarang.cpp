@@ -1,6 +1,6 @@
 /*
 ===========================================
-        GUDANG STOK BARANG BULANAN 
+        GUDANG STOK BARANG BULANAN
                 TOKO TIB
 ===========================================
 | nama     | stok |  harga/ |  keterangan  |
@@ -14,5 +14,19 @@
     1. Tambah Stok Gudang
     2. Kembali
 ===========================================
-*pilih menu opsi (1-2) : 
+*pilih menu opsi (1-2) :
 */
+
+#include <iostream>
+#include "function.h"
+using namespace std;
+
+int stokBarang()
+{
+    cout << "anda masuk ke stok gudang";
+    return 0;
+}
+
+int main(){
+    return 0;
+}
