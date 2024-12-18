@@ -28,7 +28,9 @@ int cetakStruk();
 int riwayatTransaksiD();
 int stat();
 int main();
+int modalToko();
 int hitungBiaya(vector<int> listIdPesan, vector<int> totalHargaPesanPerProduk, vector<int> banyakPesan, int totalHargaPesan);
+int saldoToko = 1000000;
 struct RiwayatStransaksi
 {
     string namaKonsumen;
@@ -37,7 +39,8 @@ struct RiwayatStransaksi
 };
 
 vector<string> namaProduk = {"coklat", "beras ", "mie   ", "cabai ", "telur "};
-vector<int> hargaProduk = {2000, 3000, 1000, 4000, 5000};
+vector<int> hargaProduk = {2000, 12000, 20000, 30000, 8000};
+vector<int> stokTokoProduk = {};
 vector<RiwayatStransaksi> riwayatTransaksi = {};
 
 int stokBarang()
@@ -113,6 +116,8 @@ ulang:
         riwayatTransaksiD();
         break;
     case 4:
+        system("cls"); // Membersihkan terminal (Windows)
+        modalToko();
         break;
     case 5:
         break;
@@ -148,21 +153,21 @@ strukBaru:
     cout << "   NAMA KONSUMENT : ";
     cin >> namaKonsumen;
     cout << "   PILIH PRODUK ID : " << endl;
-    cout << "       0. coklat" << endl;
-    cout << "       1. beras" << endl;
-    cout << "       2. mie" << endl;
-    cout << "       3. cabai" << endl;
-    cout << "       4. telur" << endl;
+    cout << "       0. coklat(kg)   : Rp. 2000" << endl;
+    cout << "       1. beras(kg)    : Rp.12000" << endl;
+    cout << "       2. mie(kg)      : Rp.20000" << endl;
+    cout << "       3. cabai(kg)    : Rp.30000" << endl;
+    cout << "       4. telur(kg)    : Rp. 8000" << endl;
     cout << "\n";
 
 masukanIdProd:
     if (!isPass)
     {
         string YN;
-        cout << "   Masukan Id Produk    : ";
+        cout << "   Masukan Id Produk        : ";
         cin >> idProduk;
 
-        cout << "   Masukan Total Produk : ";
+        cout << "   Masukan Total Produk(kg) : ";
         cin >> totalProduk;
 
         auto it = find(idPesan.begin(), idPesan.end(), idProduk);
@@ -202,8 +207,8 @@ masukanIdProd:
     totalHargaPesan = hitungBiaya(idPesan, totalHargaPesanPerProduk, banyakPesan, totalHargaPesan);
 bayarLagi:
     cout << "\n";
-    cout << "   TOTAL BELANJA : " << totalHargaPesan << endl;
-    cout << "   TOTAL BAYAR   : ";
+    cout << "   TOTAL BELANJA : Rp." << totalHargaPesan << endl;
+    cout << "   TOTAL BAYAR   : Rp.";
     cin >> totalBayar;
     kembalian = totalBayar - totalHargaPesan;
 
@@ -243,9 +248,9 @@ bayarLagi:
         cout << "   " << i + 1 << ". " << namaProduk[idPesan[i]] << "    " << banyakPesan[i] << "kg    " << hargaProduk[idPesan[i]] * banyakPesan[i] << "rb" << " \n";
     }
     cout << "\n";
-    cout << "   TOTAL BELANJA : " << totalHargaPesan << endl;
-    cout << "   TOTAL BAYAR   : " << totalBayar << endl;
-    cout << "   KEMBALIAN     : " << kembalian << endl;
+    cout << "   TOTAL BELANJA : Rp." << totalHargaPesan << endl;
+    cout << "   TOTAL BAYAR   : Rp." << totalBayar << endl;
+    cout << "   KEMBALIAN     : Rp." << kembalian << endl;
 
     cout << "\n";
     cout << "=========================================== " << endl;
@@ -254,8 +259,10 @@ bayarLagi:
     cout << "=========================================== " << endl;
 
     riwayatTransaksi.push_back({namaKonsumen, {barangPesan}, totalHargaPesan});
+    saldoToko += totalHargaPesan;
 
     cout << "\n";
+    this_thread::sleep_for(chrono::seconds(3));
     cout << "   1. Catak Struk Baru" << endl;
     cout << "   2. Kembali" << endl;
 ulang:
@@ -312,7 +319,7 @@ int riwayatTransaksiD()
         {
             cout << barang << ",";
         }
-        cout << "   " << transaksi.totalHarga << "   " << endl;
+        cout << "   Rp." << transaksi.totalHarga << "   " << endl;
     }
     cout << "\n";
     cout << "===========================================" << endl;
@@ -339,6 +346,43 @@ ulang:
         goto ulang;
         break;
     }
+}
+
+int modalToko()
+{
+    int opsi;
+    cout << "===========================================" << endl;
+    cout << "         SALDO/MODAL TOKO TIB" << endl;
+    cout << "===========================================" << endl;
+    cout << "\n";
+    cout << "  TOTAL SALDO : Rp." << saldoToko << endl;
+    cout << "\n";
+    cout << "===========================================" << endl;
+    cout << "\n";
+    cout << "   1. Pinjam Saldo/Modal" << endl;
+    cout << "   2. Kembali" << endl;
+ulang:
+    cout << "\n";
+    cout << "*pilih menu opsi (1-2) : ";
+    cin >> opsi;
+
+    switch (opsi)
+    {
+    case 1:
+        /* code */
+        break;
+    case 2:
+        system("cls");
+        stat();
+        break;
+
+    default:
+        cout << "opsi yang kamumasukan SALAH." << endl;
+        goto ulang;
+        break;
+    }
+
+    return 0;
 }
 
 int main()
